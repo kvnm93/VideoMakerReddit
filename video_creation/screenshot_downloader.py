@@ -44,7 +44,10 @@ def download_screenshots_of_reddit_posts(reddit_object: dict, screenshot_num: in
         # Get the thread screenshot
         page = context.new_page()
         page.goto(reddit_object["thread_url"], timeout=0)
-        page.set_viewport_size(ViewportSize(width=1920, height=1080))
+        #page.set_viewport_size(ViewportSize(width=1920, height=1080))
+        page.set_viewport_size(ViewportSize(width=414, height=871))
+        # Zoom to 150%
+        # page.evaluate("document.body.style.zoom=1.5")
         if page.locator('[data-testid="content-gate"]').is_visible():
             # This means the post is NSFW and requires to click the proceed button.
 
